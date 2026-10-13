@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ICN · Complejidad de navegación en portales de gobierno</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<header class="encabezado">
+  <div class="marco">
+    <h1>Índice de Complejidad de Navegación</h1>
+    <p class="subtitulo">Mide si cada submenú pertenece de verdad al menú que lo
+      contiene, comparando la similitud semántica de las etiquetas contra lo que
+      daría una asignación al azar.</p>
+    <div class="escala-leyenda" aria-hidden="true">
+      <div class="escala">
+        <span class="zona zona-desvia"></span>
+        <span class="zona zona-neutra"></span>
+        <span class="zona zona-pertenece"></span>
+        <span class="marca-azar"></span>
+      </div>
+      <div class="escala-etiquetas">
+        <span>0 · no pertenece</span>
+        <span class="centro">0.5 · azar</span>
+        <span>1 · pertenece</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="marco">
+
+  <!-- ══════════════════ Composición del corpus ══════════════════ -->
+  <section class="panel" id="seccion-corpus">
+    <div class="columna-forma">
+      <h2>Agregar portales</h2>
+
+      <form id="forma-uno" class="forma">
+        <label for="campo-nombre">Nombre</label>
+        <input id="campo-nombre" type="text" placeholder="Aguascalientes"
+               autocomplete="off">
+        <label for="campo-url">Dirección</label>
+        <input id="campo-url" type="text" placeholder="aguascalientes.gob.mx"
+               autocomplete="off" required>
+        <button type="submit" class="boton">Agregar</button>
+      </form>
+
+      <details class="plegable">
+        <summary>Pegar una lista</summary>
+        <p class="ayuda">Una por línea. Admite <code>Nombre, URL</code>,
+          <code>Nombre⇥URL</code> o solo la dirección.</p>
+        <textarea id="campo-lote" rows="6"
+                  placeholder="Jalisco, https://www.jalisco.gob.mx/&#10;https://www.nl.gob.mx/"></textarea>
+        <button id="btn-lote" class="boton boton-secundario">Agregar lista</button>
+      </details>
+
+      <details class="plegable">
+        <summary>Cargar un archivo</summary>
+        <p class="ayuda">Texto plano o CSV con una dirección por línea.</p>
+        <input type="file" id="campo-archivo" accept=".txt,.csv,.tsv">
+      </details>
+
+      <button id="btn-catalogo" class="boton boton-secundario ancho">
+        Cargar las 32 entidades federativas
+      </button>
+      <p class="ayuda">Direcciones tentativas según la convención
+        <code>[entidad].gob.mx</code>. Las que no respondan se omiten y quedan
+        anotadas en la bitácora.</p>
+    </div>
+
+    <div class="columna-lista">
+      <div class="lista-cabeza">
+        <h2>Corpus <span id="conteo" class="conteo">0</span></h2>
+        <button id="btn-vaciar" class="enlace-accion" hidden>Vaciar</button>
+      </div>
+      <ul id="lista-portales" class="lista"></ul>
+      <p id="lista-vacia" class="vacio">
+        Agrega los portales que quieras comparar. Con dos o más se calculan los
+        estadísticos de corpus y la amplitud de referencia.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ Análisis ══════════════════ -->
+  <section class="panel panel-accion">
+    <div class="fila-accion">
+      <button id="btn-analizar" class="boton boton-principal" disabled>
+        Analizar corpus
+      </button>
+      <button id="btn-cancelar" class="boton boton-secundario" hidden>
+        Cancelar
+      </button>
+      <details class="plegable plegable-opciones">
+        <summary>Opciones</summary>
+        <div class="opciones">
+          <label><input type="checkbox" id="op-render">
+            Renderizar JavaScript <span class="nota">menús que se dibujan en el navegador</span></label>
+          <label><input type="checkbox" id="op-interactivo">
+            Interactuar con el menú <span class="nota">mega-menús que solo aparecen al pasar el cursor</span></label>
+          <label><input type="checkbox" id="op-robots">
+            Ignorar robots.txt <span class="nota">solo con autorización de la dependencia</span></label>
+          <label><input type="checkbox" id="op-demo">
+            Modo demostración <span class="nota">sin modelo semántico; solo prueba el flujo</span></label>
+          <label class="linea">Percentil para la amplitud de referencia
+            <input type="number" id="op-percentil" value="95" min="50" max="100" step="1"></label>
+        </div>
+      </details>
+    </div>
+
+    <div id="progreso" class="progreso" hidden>
+      <div class="barra"><div id="barra-relleno" class="barra-relleno"></div></div>
+      <div class="progreso-texto">
+        <span id="progreso-mensaje">Preparando…</span>
+        <span id="progreso-pct" class="pct">0%</span>
+      </div>
+      <ol id="bitacora" class="bitacora"></ol>
+    </div>
+  </section>
+
+  <!-- ══════════════════ Resultados ══════════════════ -->
+  <section id="resultados" hidden>
+
+    <div class="resumen-cabeza">
+      <h2>Resultados</h2>
+      <div class="acciones-export">
+        <a id="exp-csv" class="enlace-accion" href="/api/exportar/csv">Descargar CSV</a>
+        <a id="exp-json" class="enlace-accion" href="/api/exportar/json">Descargar JSON</a>
+      </div>
+    </div>
+    <p id="resumen-meta" class="meta"></p>
+
+    <div class="panel bloque">
+      <h3>Dónde cae cada portal</h3>
+      <p class="ayuda">Cada marca es un portal sobre el eje del índice. Las
+        bandas sombreadas son los cuartiles del corpus: sustituyen a los umbrales
+        convencionales porque son empíricos y reproducibles.</p>
+      <div id="tira-icn"></div>
+    </div>
+
+    <div class="panel bloque">
+      <h3>De qué se compone el índice de cada portal</h3>
+      <p class="ayuda">Cada barra es el ICN descompuesto en la aportación
+        ponderada de sus cinco componentes. Dos portales con el mismo índice
+        pueden tener problemas de naturaleza distinta.</p>
+      <div id="barras-componentes"></div>
+      <div id="leyenda-componentes" class="leyenda"></div>
+    </div>
+
+    <div class="panel bloque">
+      <h3>Medidas por portal</h3>
+      <div class="tabla-desliz">
+        <table id="tabla-portales" class="tabla"></table>
+      </div>
+      <p class="ayuda">π es el índice de pertenencia medio: 0.5 equivale a un
+        emparejamiento al azar. «Mal ubicados» cuenta los submenús con π&nbsp;&lt;&nbsp;0.30,
+        es decir, peor emparejados que si se hubieran asignado aleatoriamente.</p>
+    </div>
+
+    <div class="panel bloque">
+      <h3>Distribución de la pertenencia</h3>
+      <p class="ayuda">Todos los pares menú–submenú del corpus. La línea marca el
+        azar; la masa a su izquierda son emparejamientos peores que aleatorios.</p>
+      <div id="histograma-pi"></div>
+      <div id="pi-resumen" class="cifras"></div>
+    </div>
+
+    <div class="panel bloque">
+      <h3>Descriptivos de los componentes</h3>
+      <div class="tabla-desliz">
+        <table id="tabla-descriptivos" class="tabla"></table>
+      </div>
+      <p class="ayuda">Un componente con desviación casi nula no discrimina entre
+        portales y no está aportando al índice.</p>
+    </div>
+
+    <div class="panel bloque">
+      <h3>¿Miden cosas distintas?</h3>
+      <p class="ayuda">Correlación de rangos de Spearman entre componentes. Por
+        encima de 0.90 dos componentes son redundantes y el índice los cuenta
+        dos veces.</p>
+      <div id="matriz-correlacion"></div>
+      <div id="aviso-redundancia"></div>
+    </div>
+
+    <div class="panel bloque">
+      <h3>¿El orden depende de los pesos?</h3>
+      <p class="ayuda">Se remuestrean los pesos desde una Dirichlet uniforme
+        sobre el símplex y se mide cuánto cambia el ordenamiento (τ de Kendall).
+        Es la respuesta empírica a la objeción de que los pesos son arbitrarios.</p>
+      <div id="sensibilidad"></div>
+    </div>
+
+    <div class="panel bloque">
+      <h3>Parámetros de la medición</h3>
+      <div id="parametros" class="cifras"></div>
+      <p class="ayuda">Reporta estos valores en el artículo: μ₀ y σ₀ hacen
+        interpretable la escala de π y varían por sitio; n_ref es una estadística
+        del corpus, no una constante elegida.</p>
+    </div>
+
+    <div class="panel bloque">
+      <h3>Submenús peor ubicados</h3>
+      <p class="ayuda">Ordenados por π ascendente. Es la salida de mayor valor
+        operativo: además de señalar el problema, indica a qué menú movería cada
+        etiqueta.</p>
+      <div class="selector-portal">
+        <label for="sel-portal">Portal</label>
+        <select id="sel-portal"></select>
+      </div>
+      <div class="tabla-desliz">
+        <table id="tabla-peores" class="tabla"></table>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<div id="aviso" class="aviso" hidden role="status"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
