@@ -1,0 +1,86 @@
+{
+  "n_ref": 12,
+  "percentil": 95.0,
+  "percentil_crudo": 12.0,
+  "redondeo": "techo",
+  "incluye_raiz": true,
+  "n_portales": 12,
+  "n_observaciones": 45,
+  "amplitud_min": 1,
+  "amplitud_mediana": 6.0,
+  "amplitud_media": 6.11,
+  "amplitud_max": 22,
+  "n_saturan": 4,
+  "tasa_saturacion": 0.0889,
+  "portales": {
+    "https://www.aguascalientes.gob.mx/": [
+      12,
+      11,
+      10,
+      8,
+      7,
+      6,
+      5
+    ],
+    "https://www.bajacalifornia.gob.mx": [
+      12,
+      6,
+      3
+    ],
+    "https://www.bcs.gob.mx/": [
+      5,
+      4
+    ],
+    "https://www.campeche.gob.mx/": [
+      7,
+      1
+    ],
+    "https://www.chihuahua.gob.mx/": [
+      7,
+      6,
+      3,
+      1
+    ],
+    "https://www.hidalgo.gob.mx/": [
+      6,
+      4,
+      3,
+      2
+    ],
+    "https://www.jalisco.gob.mx/": [
+      11,
+      9,
+      8,
+      8,
+      7,
+      4,
+      2,
+      2
+    ],
+    "https://michoacan.gob.mx/": [
+      6,
+      2,
+      1
+    ],
+    "https://www.queretaro.gob.mx/": [
+      22,
+      5
+    ],
+    "https://www.sinaloa.gob.mx/": [
+      3,
+      1
+    ],
+    "https://www.tlaxcala.gob.mx/": [
+      4,
+      1
+    ],
+    "https://www.yucatan.gob.mx/": [
+      15,
+      11,
+      7,
+      7,
+      5,
+      5
+    ]
+  }
+}

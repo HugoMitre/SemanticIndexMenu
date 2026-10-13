@@ -1,0 +1,233 @@
+[
+  {
+    "id": "p48945790",
+    "clave": "AGUASCALIENT",
+    "nombre": "Aguascalientes",
+    "url": "https://www.aguascalientes.gob.mx/",
+    "agregado": "2026-09-11T19:28:14+00:00"
+  },
+  {
+    "id": "p49451281",
+    "clave": "BAJACALIFORN",
+    "nombre": "Baja California Norte",
+    "url": "https://www.bajacalifornia.gob.mx",
+    "agregado": "2026-09-11T19:29:05+00:00"
+  },
+  {
+    "id": "p49748732",
+    "clave": "BAJACALIFORN",
+    "nombre": "Baja California Sur",
+    "url": "https://www.bcs.gob.mx/",
+    "agregado": "2026-09-11T19:29:34+00:00"
+  },
+  {
+    "id": "p50983753",
+    "clave": "ESTADODECAMP",
+    "nombre": "Estado de Campeche",
+    "url": "https://www.campeche.gob.mx/",
+    "agregado": "2026-09-11T19:31:38+00:00"
+  },
+  {
+    "id": "p51245374",
+    "clave": "ESTADODECHIA",
+    "nombre": "Estado de Chiapas",
+    "url": "https://www.chiapas.gob.mx/",
+    "agregado": "2026-09-11T19:32:04+00:00"
+  },
+  {
+    "id": "p51505415",
+    "clave": "CHIHUAHUA",
+    "nombre": "Chihuahua",
+    "url": "https://www.chihuahua.gob.mx/",
+    "agregado": "2026-09-11T19:32:30+00:00"
+  },
+  {
+    "id": "p51672546",
+    "clave": "COAHUILA",
+    "nombre": "Coahuila",
+    "url": "https://www.coahuila.gob.mx/",
+    "agregado": "2026-09-11T19:32:47+00:00"
+  },
+  {
+    "id": "p51901007",
+    "clave": "COLIMA",
+    "nombre": "Colima",
+    "url": "https://www.col.gob.mx/",
+    "agregado": "2026-09-11T19:33:10+00:00"
+  },
+  {
+    "id": "p52055548",
+    "clave": "DURANGO",
+    "nombre": "Durango",
+    "url": "https://www.durango.gob.mx/",
+    "agregado": "2026-09-11T19:33:25+00:00"
+  },
+  {
+    "id": "p52256009",
+    "clave": "GUANAJUATO",
+    "nombre": "Guanajuato",
+    "url": "https://www.guanajuato.gob.mx/",
+    "agregado": "2026-09-11T19:33:45+00:00"
+  },
+  {
+    "id": "p524422710",
+    "clave": "HIDALGO",
+    "nombre": "Hidalgo",
+    "url": "https://www.hidalgo.gob.mx/",
+    "agregado": "2026-09-11T19:34:04+00:00"
+  },
+  {
+    "id": "p525929911",
+    "clave": "JALISCO",
+    "nombre": "Jalisco",
+    "url": "https://www.jalisco.gob.mx/",
+    "agregado": "2026-09-11T19:34:19+00:00"
+  },
+  {
+    "id": "p528322712",
+    "clave": "ESTADODEMÉXI",
+    "nombre": "Estado de México",
+    "url": "https://edomex.gob.mx/",
+    "agregado": "2026-09-11T19:34:43+00:00"
+  },
+  {
+    "id": "p529901313",
+    "clave": "MICHOACÁN",
+    "nombre": "Michoacán",
+    "url": "https://michoacan.gob.mx/",
+    "agregado": "2026-09-11T19:34:59+00:00"
+  },
+  {
+    "id": "p531731114",
+    "clave": "MORELOS",
+    "nombre": "Morelos",
+    "url": "https://morelos.gob.mx/",
+    "agregado": "2026-09-11T19:35:17+00:00"
+  },
+  {
+    "id": "p533553015",
+    "clave": "NUEVOLEÓN",
+    "nombre": "Nuevo León",
+    "url": "https://www.nl.gob.mx/",
+    "agregado": "2026-09-11T19:35:35+00:00"
+  },
+  {
+    "id": "p535612716",
+    "clave": "OAXACA",
+    "nombre": "Oaxaca",
+    "url": "https://www.oaxaca.gob.mx/",
+    "agregado": "2026-09-11T19:35:56+00:00"
+  },
+  {
+    "id": "p537452117",
+    "clave": "PUEBLA",
+    "nombre": "Puebla",
+    "url": "https://www.puebla.gob.mx/",
+    "agregado": "2026-09-11T19:36:14+00:00"
+  },
+  {
+    "id": "p539476918",
+    "clave": "QUERÉTARO",
+    "nombre": "Querétaro",
+    "url": "https://www.queretaro.gob.mx/",
+    "agregado": "2026-09-11T19:36:34+00:00"
+  },
+  {
+    "id": "p541047419",
+    "clave": "TABASCO",
+    "nombre": "Tabasco",
+    "url": "https://tabasco.gob.mx/",
+    "agregado": "2026-09-11T19:36:50+00:00"
+  },
+  {
+    "id": "p887893620",
+    "clave": "CIUDADDEMÉXI",
+    "nombre": "Ciudad de México",
+    "url": "https://www.cdmx.gob.mx/",
+    "agregado": "2026-09-11T20:34:38+00:00"
+  },
+  {
+    "id": "p887893621",
+    "clave": "GUERRERO",
+    "nombre": "Guerrero",
+    "url": "https://guerrero.gob.mx/",
+    "agregado": "2026-09-11T20:34:38+00:00"
+  },
+  {
+    "id": "p887893722",
+    "clave": "NAYARIT",
+    "nombre": "Nayarit",
+    "url": "https://www.nayarit.gob.mx/",
+    "agregado": "2026-09-11T20:34:38+00:00"
+  },
+  {
+    "id": "p887893723",
+    "clave": "PUEBLA",
+    "nombre": "Puebla",
+    "url": "https://puebla.gob.mx/",
+    "agregado": "2026-09-11T20:34:38+00:00"
+  },
+  {
+    "id": "p887893724",
+    "clave": "QUINTANAROO",
+    "nombre": "Quintana Roo",
+    "url": "https://qroo.gob.mx/",
+    "agregado": "2026-09-11T20:34:38+00:00"
+  },
+  {
+    "id": "p887893725",
+    "clave": "SANLUISPOTOS",
+    "nombre": "San Luis Potosí",
+    "url": "https://www.slp.gob.mx/",
+    "agregado": "2026-09-11T20:34:38+00:00"
+  },
+  {
+    "id": "p887893726",
+    "clave": "SINALOA",
+    "nombre": "Sinaloa",
+    "url": "https://www.sinaloa.gob.mx/",
+    "agregado": "2026-09-11T20:34:38+00:00"
+  },
+  {
+    "id": "p887893727",
+    "clave": "SONORA",
+    "nombre": "Sonora",
+    "url": "https://www.sonora.gob.mx/",
+    "agregado": "2026-09-11T20:34:38+00:00"
+  },
+  {
+    "id": "p887893728",
+    "clave": "TAMAULIPAS",
+    "nombre": "Tamaulipas",
+    "url": "https://www.tamaulipas.gob.mx/",
+    "agregado": "2026-09-11T20:34:38+00:00"
+  },
+  {
+    "id": "p887893729",
+    "clave": "TLAXCALA",
+    "nombre": "Tlaxcala",
+    "url": "https://www.tlaxcala.gob.mx/",
+    "agregado": "2026-09-11T20:34:38+00:00"
+  },
+  {
+    "id": "p887893730",
+    "clave": "VERACRUZ",
+    "nombre": "Veracruz",
+    "url": "https://www.veracruz.gob.mx/",
+    "agregado": "2026-09-11T20:34:38+00:00"
+  },
+  {
+    "id": "p887893731",
+    "clave": "YUCATÁN",
+    "nombre": "Yucatán",
+    "url": "https://www.yucatan.gob.mx/",
+    "agregado": "2026-09-11T20:34:38+00:00"
+  },
+  {
+    "id": "p887893732",
+    "clave": "ZACATECAS",
+    "nombre": "Zacatecas",
+    "url": "https://www.zacatecas.gob.mx/",
+    "agregado": "2026-09-11T20:34:38+00:00"
+  }
+]
