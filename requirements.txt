@@ -1,0 +1,17 @@
+# --- Servidor local ---------------------------------------------------------
+fastapi>=0.110
+uvicorn>=0.29
+python-multipart>=0.0.9      # carga de archivos con la lista de portales
+pydantic>=2.6
+
+# --- Extracción -------------------------------------------------------------
+requests>=2.32
+beautifulsoup4>=4.12
+lxml>=5.2                    # parser opcional, más rápido
+playwright>=1.45             # solo para --render / interacción
+                             # tras instalar: playwright install chromium
+
+# --- Medición ---------------------------------------------------------------
+sentence-transformers>=3.0
+torch>=2.2                   # CPU basta
+numpy>=1.26
