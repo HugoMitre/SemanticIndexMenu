@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8"><title>Portal con mega-menú (fixture)</title>
+<style>
+  .panel { display: none; }
+  .panel.abierto { display: block; }
+  nav ul { list-style: none; display: flex; gap: 1rem; }
+</style>
+</head>
+<body>
+
+<!-- Barra superior: SOLO los rótulos de primer nivel. Ningún <ul> anidado. -->
+<header>
+  <nav id="barra" role="navigation">
+    <ul class="menu">
+      <li><a href="/tramites/"  aria-haspopup="true" aria-controls="p-tramites">Trámites y Servicios</a></li>
+      <li><a href="/gobierno/"  aria-haspopup="true" aria-controls="p-gobierno">Gobierno</a></li>
+      <li><a href="/atencion/"  aria-haspopup="true" aria-controls="p-atencion">Atención Ciudadana</a></li>
+      <li><a href="/estado/"    aria-haspopup="true" aria-controls="p-estado">Estado</a></li>
+      <li><a href="/temas/"     aria-haspopup="true" aria-controls="p-temas">Temas de interés</a></li>
+      <li><a href="/transparencia/" aria-haspopup="true" aria-controls="p-transparencia">Transparencia</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Los paneles viven FUERA del <nav>, al final del body. -->
+<div class="paneles">
+  <div class="panel" id="p-tramites">
+    <a href="/tramites/control-vehicular/">Pago de control vehicular</a>
+    <a href="/tramites/licencias/">Licencia de conducir</a>
+    <a href="/tramites/registro-civil/">Actas del Registro Civil</a>
+    <a href="/tramites/citas/">Sistema de citas web</a>
+    <a href="/tramites/predial/">Pago de predial</a>
+  </div>
+  <div class="panel" id="p-gobierno">
+    <a href="/gobierno/gabinete/">Gabinete</a>
+    <a href="/gobierno/dependencias/">Dependencias</a>
+    <a href="/gobierno/directorio/">Directorio gubernamental</a>
+    <a href="/gobierno/normateca/">Normateca estatal</a>
+  </div>
+  <div class="panel" id="p-atencion">
+    <a href="/atencion/locatel/">LOCATEL</a>
+    <a href="/atencion/quejas/">Buzón de quejas y sugerencias</a>
+    <a href="/atencion/denuncia/">Denuncia a servidores públicos</a>
+  </div>
+  <div class="panel" id="p-estado">
+    <a href="/estado/turismo/">Turismo y pueblos mágicos</a>
+    <a href="/estado/cultura/">Agenda cultural</a>
+    <a href="/estado/historia/">Historia y símbolos</a>
+    <a href="/legal/avisos-de-privacidad/">Avisos de privacidad</a>
+    <a href="/tramites/multas/">Consulta y pago de multas de tránsito</a>
+  </div>
+  <div class="panel" id="p-temas">
+    <a href="/temas/salud/">Salud</a>
+    <a href="/temas/educacion/">Educación</a>
+    <a href="/temas/medio-ambiente/">Medio ambiente</a>
+  </div>
+  <div class="panel" id="p-transparencia">
+    <a href="/transparencia/sisai/">Solicitudes de acceso a la información</a>
+    <a href="/transparencia/declaraciones/">Declaraciones patrimoniales</a>
+    <a href="/transparencia/obligaciones/">Obligaciones de transparencia</a>
+  </div>
+</div>
+
+<script>
+// El panel solo se revela al pasar el cursor: sin interacción, el DOM
+// "renderizado" se ve idéntico al DOM inicial.
+document.querySelectorAll('#barra a[aria-controls]').forEach(function (a) {
+  a.addEventListener('mouseenter', function () {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('abierto'));
+    document.getElementById(a.getAttribute('aria-controls')).classList.add('abierto');
+  });
+});
+</script>
+</body>
+</html>
